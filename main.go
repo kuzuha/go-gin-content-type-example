@@ -16,6 +16,21 @@ type (
 )
 
 func router(g *gin.Engine) {
+	g.Any("/any", func(c *gin.Context) {
+		u := &UserFromJson{}
+		err := c.Bind(u)
+		if err != nil || u.Name == "" {
+			u := &UserFromJson{}
+			err := c.Bind(u)
+			if err != nil {
+				c.JSON(http.StatusInternalServerError, err.Error())
+				return
+			}
+		}
+		c.JSON(http.StatusOK, gin.H{
+			"name": u.Name,
+		})
+	})
 	g.POST("/json", func(c *gin.Context) {
 		u := &UserFromJson{}
 		err := c.Bind(u)

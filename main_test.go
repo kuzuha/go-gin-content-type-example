@@ -46,6 +46,30 @@ func TestRequests(t *testing.T) {
 			body:        ``,
 			expected:    `{"name":"query user"}`,
 		},
+		{
+			name:        "from json",
+			method:      "POST",
+			contentType: "application/json",
+			url:         "/any",
+			body:        `{"name": "json user"}`,
+			expected:    `{"name":"json user"}`,
+		},
+		{
+			name:        "from form",
+			method:      "POST",
+			contentType: "application/x-www-form-urlencoded",
+			url:         "/any",
+			body:        `name=form%20user`,
+			expected:    `{"name":"form user"}`,
+		},
+		{
+			name:        "from query",
+			method:      "GET",
+			contentType: "",
+			url:         "/any?name=query%20user",
+			body:        ``,
+			expected:    `{"name":"query user"}`,
+		},
 	}
 
 	for _, tt := range tests {
