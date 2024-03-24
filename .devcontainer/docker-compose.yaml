@@ -1,0 +1,7 @@
+services:
+  golang:
+    image: golang:1.22.1
+    volumes:
+      - ..:/workspace/golang
+    stdin_open: true
+    tty: true

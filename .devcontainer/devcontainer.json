@@ -1,0 +1,5 @@
+{
+  "dockerComposeFile": "docker-compose.yaml",
+  "service": "golang",
+  "workspaceFolder": "/workspace/${localWorkspaceFolderBasename}"
+}
