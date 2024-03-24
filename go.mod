@@ -1,4 +1,4 @@
-module gin-content-encoding-example
+module gin-content-type-example
 
 go 1.22.1
 
