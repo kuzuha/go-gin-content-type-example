@@ -10,7 +10,7 @@ import (
 	"testing"
 )
 
-func TestJSON(t *testing.T) {
+func TestRequests(t *testing.T) {
 	g := gin.Default()
 	router(g)
 
